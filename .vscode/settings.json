@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./compressed-sensing",
+        "./snoop"
+    ]
+}
