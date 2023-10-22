@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "./snoop",
+        "./lstm_detect",
+        "./pyod_detect"
+    ]
+}

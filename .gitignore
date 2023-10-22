@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+
+# Generated data
+*.csv
+
+# Result PNG
+*.png
