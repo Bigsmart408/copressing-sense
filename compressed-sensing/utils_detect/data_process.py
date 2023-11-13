@@ -13,8 +13,6 @@ def median(num_list: list):
 
 # normalization 函数通过计算数据的范围，将数据进行归一化处理。
 def normalization(data):
-    print(np.max(data))
-    print(np.min(data))
     _range = np.max(data) - np.min(data)
     if _range == 0:
         return np.zeros_like(data) + 0.5

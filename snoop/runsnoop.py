@@ -31,21 +31,22 @@ class TOPSnoop():
         使用子进程的方式来实现对多种数据同时进行监控
         """
         
-        cpu_snoop_process = mp.Process(target=self.cpu_snoop.main_loop, args=("csv/cpu.csv", 1))
-        mem_snoop_process = mp.Process(target=self.mem_snoop.main_loop, args=("csv/mem.csv", 1))
-        net_snoop_process = mp.Process(target=self.network_snoop.mainloop, args=("csv/net.csv", 1))
-        all_snoop_process = mp.Process(target=self.all_snoop.main_loop,args=("csv/all.csv",1))
-        vall_snoop_process = mp.Process(target=self.vall_snoop.main_loop,args=("csv/vall.csv",1))
-        vcpu_snoop_process = mp.Process(target=self.vcpu_snoop.main_loop, args=("csv/vcpu.csv", 1))
-        vmem_snoop_process = mp.Process(target=self.vmem_snoop.main_loop, args=("csv/vmem.csv", 1))
-        vnet_snoop_process = mp.Process(target=self.vnetwork_snoop.main_loop, args=("csv/vnet.csv", 1))
-        cpu_snoop_process.start()
+        """cpu_snoop_process = mp.Process(target=self.cpu_snoop.main_loop, args=("csv/data/cpu.csv", 0.5))
+        mem_snoop_process = mp.Process(target=self.mem_snoop.main_loop, args=("csv/data/mem.csv", 0.5))
+        net_snoop_process = mp.Process(target=self.network_snoop.mainloop, args=("csv/data/net.csv", 0.5))
+        vcpu_snoop_process = mp.Process(target=self.vcpu_snoop.main_loop, args=("csv/data/vcpu.csv", 0.5))
+        vmem_snoop_process = mp.Process(target=self.vmem_snoop.main_loop, args=("csv/data/vmem.csv", 0.5))
+        vnet_snoop_process = mp.Process(target=self.vnetwork_snoop.main_loop, args=("csv/data/vnet.csv", 0.5)) """
+        all_snoop_process = mp.Process(target=self.all_snoop.main_loop,args=("csv/data/all.csv",0.5))
+        vall_snoop_process = mp.Process(target=self.vall_snoop.main_loop,args=("csv/data/vall.csv",0.5))
+        """cpu_snoop_process.start()
         mem_snoop_process.start()
         net_snoop_process.start()
         vcpu_snoop_process.start()
         vmem_snoop_process.start()
-        vnet_snoop_process.start()
+        vnet_snoop_process.start()"""
         all_snoop_process.start()
+        vall_snoop_process.start()
 
 
 

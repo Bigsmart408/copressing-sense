@@ -49,7 +49,6 @@ class VmemSnoop:
             c2 = int(domain.info()[4])
             c_nums = int(domain.info()[3])
             cpu_per = (c2 - c1) * 100 / ((t2 - t1) * c_nums * 1e9)
-            print("%s cpu_per:%f" % (domain.name(), cpu_per))
 
             # 获得内存信息,需要添加一个如果unused仍能继续输出
             domain.setMemoryStatsPeriod(10)

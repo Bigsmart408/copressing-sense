@@ -13,10 +13,11 @@ def record(save, predict, value, start):
     line = f.readline()
     num =0
     while line:
-        
         if float(line) > 0.0 :
             out.write(localtime + ":\n")
+            num+=1
             out.write(str(df.loc[offset + start].round(2).apply('{:.2f}'.format)))
             out.write("\n\n")
         offset = offset + 1
         line = f.readline()
+    print(num)

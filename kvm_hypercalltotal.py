@@ -1,16 +1,5 @@
-import datetime
-import os
-import sys
-import time
-import argparse
-import multiprocessing as mp
-import subprocess
 
-sys.path.append(os.getcwd() + '/snoop')
-sys.path.append(os.getcwd() + '/compressed-sensing')
-
-import runsnoop 
-import detect
+from __future__ import print_function
 from bcc import BPF
 
 # load BPF program
@@ -25,6 +14,15 @@ TRACEPOINT_PROBE(kvm,kvm_hypercall){
         bpf_trace_printk("HYPERCALL a3 : %ld\\n",args->a3);
 };
 """)
-if __name__ == '__main__':
-        
-        detect.detect("snoop/data/all.csv", "outcome/csv/all.csv", 0)
+
+
+# header
+print("%-18s %-16s %-6s %s" % ("TIME(s)", "COMM", "PID", "EVENT"))
+
+# format output
+while 1:
+    try:
+        (task, pid, cpu, flags, ts, msg) = b.trace_fields()
+    except ValueError:
+        continue
+    print("%-18.9f %-16s %-6d %s" % (ts, task, pid, msg))
